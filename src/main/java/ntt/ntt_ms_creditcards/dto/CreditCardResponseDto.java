@@ -3,6 +3,7 @@ package ntt.ntt_ms_creditcards.dto;
 import lombok.*;
 import ntt.ntt_ms_creditcards.enums.CreditCardCategory;
 import ntt.ntt_ms_creditcards.enums.CreditCardNetwork;
+import ntt.ntt_ms_creditcards.enums.CreditCardStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,7 +33,7 @@ public class CreditCardResponseDto {
     // Fechas y control
     private LocalDate issueDate;       // fecha de emisión
     private LocalDate expirationDate;  // fecha de expiración
-    private String status;             // ACTIVE, BLOCKED, CANCELLED
+    private CreditCardStatus creditCardStatus;             // ACTIVE, BLOCKED, CANCELLED
 
     // Auditoría
     private LocalDateTime createdAt;
