@@ -8,5 +8,6 @@ import reactor.core.publisher.Mono;
 public interface CreditCardService {
     Flux<CreditCardResponseDto> findAllCreditCard();
     Mono<CreditCardResponseDto> findCreditCardById(String id);
+    Flux<CreditCardResponseDto> findCreditCardsByCustomerId(String customerId);
     Mono<CreditCardResponseDto> saveCreditCard(CreditCardRequestDto request);
 }

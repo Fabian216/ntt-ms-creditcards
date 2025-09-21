@@ -36,6 +36,11 @@ public class CreditCardServiceImpl implements CreditCardService {
                 .doOnError(e -> log.error("Error al obtener tarjeta de credito con id: {}", id));
     }
 
+    public Flux<CreditCardResponseDto> findCreditCardsByCustomerId(String id) {
+        return repository.findByCustomerId(id)
+                .map(creditCardMapper::toResponseDto);
+    }
+
     public Mono<CreditCardResponseDto> saveCreditCard(CreditCardRequestDto request) {
         return repository.save(creditCardMapper.toEntity(request))
                 .map(creditCardMapper::toResponseDto);
