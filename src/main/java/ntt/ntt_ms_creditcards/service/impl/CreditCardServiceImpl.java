@@ -33,7 +33,7 @@ public class CreditCardServiceImpl implements CreditCardService {
                 .switchIfEmpty(Mono.error(new IllegalArgumentException("no encontrado")))
                 .map(creditCardMapper::toResponseDto)
                 .doOnSuccess((creditCard) -> log.info("Tarjeta de credito con id: {} encontrado con exito.", creditCard.getId()))
-                .doOnError(e -> log.error("Error al obtener tarjeta de credito con id: {}", id));
+                .doOnError(e -> log.error("Fallo al obtener tarjeta de credito con id: {} , error: {}", id, e.getMessage()));
     }
 
     public Flux<CreditCardResponseDto> findCreditCardsByCustomerId(String id) {
